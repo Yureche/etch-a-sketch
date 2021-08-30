@@ -12,3 +12,9 @@ function makeRows(rows, cols) {
 
 makeRows(16, 16);
 
+// const gridItems = document.querySelectorAll('.grid-item');
+// gridItems.forEach(cell => cell.addEventListener('mouseeenter', () =>{cell.classList.add('hover')}))
+
+document.querySelectorAll('.grid-item').forEach(cell => {
+    cell.addEventListener('mouseenter', ()=>{cell.classList.add('hover')})
+})
