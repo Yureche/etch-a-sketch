@@ -50,10 +50,3 @@ newGridBtn.addEventListener('click',() => {
 // Call functions
 createGrid(16, 16);
 colorCells()
-
-
-
-
-
-
-
