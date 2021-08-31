@@ -3,25 +3,26 @@
   --grid-rows: 1;
 }
 
-body {
+header { 
+  margin: 15px 20px 50px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#main{
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
-#main {
-  /* background-color: #000; */
-  border: 1px solid #000;
-  max-width: 950px;
-  height: auto;
-  padding: 0;
-}
-
 
 
 #container {
   display: grid;
-  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-rows: repeat(var(--grid-rows),1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
+  min-width: 0;
+  min-height: 0;
 }
 
 .grid-item {
@@ -33,4 +34,11 @@ body {
 
 .hover {
   background-color: #000;
+}
+
+button {
+  padding: 7px;
+  width: 70px;
+  border: 1px solid black;
+  margin:5px; 
 }
