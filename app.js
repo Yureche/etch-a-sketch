@@ -4,10 +4,10 @@ const clearBtn = document.querySelector('#clear');
 const newGridBtn = document.querySelector("#newGrid");
 
 // Functions
-function createGrid(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
+function createGrid(cellsPerSide) {
+  container.style.setProperty('--grid-rows', cellsPerSide);
+  container.style.setProperty('--grid-cols', cellsPerSide);
+  for (c = 0; c < (cellsPerSide*cellsPerSide); c++) {
     let cell = document.createElement("div");
     // cell.innerText = (c + 1);
     container.appendChild(cell).className = "grid-item";
@@ -30,10 +30,9 @@ function removeGrid() {
 }
 
 function createNewGrid() {
-  rows = parseInt( prompt("How many rows do you want? ", 16))
-  cols = parseInt(prompt("How many cols do you want? ", 16) )
+  cellsPerSide = parseInt( prompt(""))
   removeGrid()
-  createGrid(rows,cols)
+  createGrid(cellsPerSide)
   colorCells()
 }
 
