@@ -1,7 +1,6 @@
 // Define items 
 const container = document.querySelector("#container");
 const clearBtn = document.querySelector('#clear');
-const newGridBtn = document.querySelector("#newGrid");
 const gridSizeSlider = document.querySelector('#slider');
 
 
@@ -40,12 +39,7 @@ function removeGrid() {
   document.querySelectorAll('.grid-item').forEach(item => {item.remove()})
 }
 
-function createNewGrid() {
-  cellsPerSide = parseInt( prompt(""))
-  removeGrid()
-  createGrid(cellsPerSide)
-  colorCells()
-}
+
 
 function resizeGrid() {
   removeGrid()
@@ -65,10 +59,7 @@ gridSizeSlider.addEventListener('oninput', () => {
 })
 
 
-newGridBtn.addEventListener('click',() => {
-  createNewGrid()
-})
-
+  
 
 
 
