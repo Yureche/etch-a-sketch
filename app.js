@@ -2,7 +2,7 @@
 const container = document.querySelector("#container");
 const clearBtn = document.querySelector('#clear');
 const newGridBtn = document.querySelector("#newGrid");
-const gridSizeSlider = document.querySelector('#gridSize')
+const gridSizeSlider = document.querySelector('#slider');
 
 
 // Functions
@@ -47,6 +47,12 @@ function createNewGrid() {
   colorCells()
 }
 
+function resizeGrid() {
+  removeGrid()
+  createGrid(document.querySelector('#slider').value)
+  colorCells()
+}
+
 
 
 // Events
@@ -54,10 +60,16 @@ clearBtn.addEventListener('click',() => {
   erase()
 })
 
+gridSizeSlider.addEventListener('oninput', () => {
+  resizeGrid()
+})
+
 
 newGridBtn.addEventListener('click',() => {
   createNewGrid()
 })
+
+
 
 
 
