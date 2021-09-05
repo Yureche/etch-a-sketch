@@ -2,7 +2,12 @@
 const container = document.querySelector("#container");
 const clearBtn = document.querySelector('#clear');
 const gridSizeSlider = document.querySelector('#slider');
+const eraserBtn = document.querySelector('#eraser');
+const blackBtn = document.querySelector('#black');
+const colorPicker = document.querySelector('#colorPicker')
+const randomColorBtn = document.querySelector('#random-color')
 
+colorPicker.value = '#9147ff'
 
 // Functions
 function createGrid(cellsPerSide) {
@@ -18,21 +23,21 @@ function createGrid(cellsPerSide) {
 
 
 
-function colorCells() {
+function addEventToCells() {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.querySelectorAll('.grid-item').forEach(cell => {
-      cell.addEventListener('touchend', ()=>{cell.classList.add('hover')})})
+      cell.addEventListener('touchend', ()=>{cell.classList.add('black')})})
   }
   else {
     document.querySelectorAll('.grid-item').forEach(cell => {
-      cell.addEventListener('mouseenter', ()=>{cell.classList.add('hover')})})
+      cell.addEventListener('mouseenter', ()=>{cell.classList.add('black')})})
   }
 
 }
 
-function erase() {
+function clearGrid() {
   const gridItems = document.querySelectorAll('.grid-item')
-  gridItems.forEach(cell => {cell.classList.remove('hover')})
+  gridItems.forEach(cell => {cell.style.backgroundColor = "#f0f2f5"})
 }
 
 function removeGrid() {
@@ -44,26 +49,53 @@ function removeGrid() {
 function resizeGrid() {
   removeGrid()
   createGrid(document.querySelector('#slider').value)
-  colorCells()
+  addEventToCells()
 }
+
+function chooseColor() {
+  let color = colorPicker.value;
+  document.querySelectorAll('.grid-item').forEach(cell => {
+    cell.addEventListener('mouseenter', ()=>{cell.style.backgroundColor = `${color}`})})
+
+}
+
+function generateColors() {
+  return `#${Math.floor(Math.random()*16777215).toString(16)}`;
+}
+
 
 
 
 // Events
 clearBtn.addEventListener('click',() => {
-  erase()
+  clearGrid()
 })
 
 gridSizeSlider.addEventListener('oninput', () => {
   resizeGrid()
 })
 
+blackBtn.addEventListener('click', () => {
+  document.querySelectorAll('.grid-item').forEach(cell => {
+    cell.addEventListener('mouseenter', ()=>{cell.style.backgroundColor = "#000"})})
+})
 
-  
+eraserBtn.addEventListener('click', () => {
+  document.querySelectorAll('.grid-item').forEach(cell => {
+    cell.addEventListener('mouseenter', ()=>{cell.style.backgroundColor = "#f0f2f5"})})
+})
+
+randomColorBtn.addEventListener('click', () => {
+  document.querySelectorAll('.grid-item').forEach(cell => {
+    cell.addEventListener('mouseenter', ()=>{cell.style.backgroundColor = generateColors()})})
+
+})
+
+
 
 
 
 
 // Call functions
 createGrid(16, 16);
-colorCells()
+addEventToCells()

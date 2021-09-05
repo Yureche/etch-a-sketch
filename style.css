@@ -40,8 +40,12 @@ body {
 }
 
 
-.hover {
+.black {
   background-color: #000;
+}
+
+.eraser {
+  background-color: #f0f2f5;
 }
 
 header { 
@@ -51,7 +55,7 @@ header {
 }
 
 button {
-  display: inline-block;
+  /* display: inline-block; */
   outline: 0;
   border: none;
   cursor: pointer;
@@ -62,7 +66,7 @@ button {
   background-color: #9147ff;
   color: white;
   padding: 0 1.2em;
-  margin: 15px;
+  margin: 13px;
 
 }
 
@@ -70,11 +74,19 @@ button:hover {
     background-color: #772ce8;
 }
 
+
 #gridSize {
   margin-top: 15px;
 }
 
 #slider {
   width: 200px;
+}
+
+#colorPicker {
+  height: 70%;
+  margin-left: 5px; 
+  margin-right: 0;
+  /* opacity: 0; */
 }
 
